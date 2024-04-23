@@ -1,4 +1,3 @@
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 --
 vim.g.mapleader = " "
 
@@ -7,10 +6,7 @@ require("mappings")
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
@@ -118,12 +114,6 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", {
 	desc = "Move focus to the upper window",
 })
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", {
@@ -134,8 +124,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -149,8 +137,6 @@ require("lazy").setup({
 	},
 }, {
 	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
 		icons = vim.g.have_nerd_font and {} or {
 			cmd = "⌘",
 			config = "🛠",
