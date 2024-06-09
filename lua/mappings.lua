@@ -18,4 +18,3 @@ vim.keymap.set("i", "<C-k>", "<Up>")
 vim.keymap.set("i", "<C-l>", "<Right>")
 
 vim.keymap.set("n", "<leader>o", "<cmd>ClangdSwitchSourceHeader<cr>")
-vim.keymap.set("n", "<leader>i", "<cmd>testo<cr>")
